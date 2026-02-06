@@ -29,7 +29,7 @@ public class TabManagement : MonoBehaviour
         }
 
         TabButtons[TabId].sprite = activeBtnBg;
-        TabButtons[TabId].rectTransform.sizeDelta = inActiveBtnSize;
+        TabButtons[TabId].rectTransform.sizeDelta = activeBtnSize;
 
     }
 
