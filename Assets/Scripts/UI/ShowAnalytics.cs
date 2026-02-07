@@ -1,0 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class ShowAnalytics : MonoBehaviour
+{
+
+    [SerializeField] private GameAnalyticsCalculator analyticsCalculator;
+    [SerializeField] private TextMeshPro showAnalytics;
+
+}

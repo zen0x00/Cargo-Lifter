@@ -12,11 +12,16 @@ public class uiManager : MonoBehaviour
     [SerializeField] private GameObject diffSelectMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject analyticsTab;
+    [SerializeField] private GameObject analyticsStatsTab;
+    [SerializeField] private GameObject analyticsGraphTab;
     [SerializeField] private GameObject leaderBoard;
 
 
+    private void Start()
+    {
 
+       GoToStart();
+    }
 
 
     private void Update()
@@ -32,7 +37,7 @@ public class uiManager : MonoBehaviour
     {
         startMenu.SetActive(false);
         diffSelectMenu.SetActive(true);
-        analyticsTab.SetActive(false);
+        analyticsStatsTab.SetActive(false);
     }
 
     public void QuitGame()
@@ -102,11 +107,17 @@ public class uiManager : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void ShowAnalyticsTab()
+    public void ShowAnalyticsStatsTab()
     {
-        analyticsTab.SetActive(true);
+        analyticsStatsTab.SetActive(true);
         leaderBoard.SetActive(false);
 
+    }
+
+    public void ShowAnalyticsGraphTab()
+    {
+        analyticsStatsTab.SetActive(false);
+        analyticsGraphTab.SetActive(true);
     }
 
 
