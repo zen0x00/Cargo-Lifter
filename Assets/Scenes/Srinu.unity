@@ -30964,6 +30964,8 @@ MonoBehaviour:
   - {fileID: 815009035}
   - {fileID: 700689641}
   - {fileID: 1966284691}
+  cargoLists: []
+  Level: 0
 --- !u!4 &1191225645
 Transform:
   m_ObjectHideFlags: 0
@@ -35785,7 +35787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396521588}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5544726, y: 0.006116565, z: -0.004075454, w: 0.83216953}
+  m_LocalRotation: {x: 0.55447006, y: 0.006630439, z: -0.004417846, w: 0.83216554}
   m_LocalPosition: {x: -4.003997, y: 27.36, z: -50.906998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38255,6 +38257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cargoContainer: {fileID: 1268806766}
+  trucksManagment: {fileID: 0}
   cargoStack: []
   cargoHeight: 2.2
   ropeSpeed: 10
@@ -51878,7 +51881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2001442776
 RectTransform:
   m_ObjectHideFlags: 0
