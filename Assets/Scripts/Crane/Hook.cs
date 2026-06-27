@@ -28,6 +28,7 @@ public class Hook : MonoBehaviour
 
 
     public bool isReleasing;
+    private Rigidbody rb;
 
     [SerializeField] private CraneRotate crane;
     [SerializeField] private CraneAudio craneAudio;
@@ -35,6 +36,7 @@ public class Hook : MonoBehaviour
     private void Start()
     {
         cargoContainerCollider = cargoContainer.GetComponent<BoxCollider>();
+        rb = GetComponent<Rigidbody>();
         lineRenderer = GetComponent<LineRenderer>();
 
         isReleasing = false;
@@ -43,6 +45,18 @@ public class Hook : MonoBehaviour
     private void Update()
     {
         input = Input.GetAxis("Vertical");
+
+        if (crane.isAtDropPoint && cargoStack.Count > 0 && !isReleasing)
+        {
+            if(cargoStack.Count > 0)
+            {
+                ReleaseCargo();
+            }
+            else
+            {
+                crane.isAtDropPoint = false;
+            }
+        }
 
         RopeControl();
         PlayCraneAudio();
@@ -72,42 +86,63 @@ public class Hook : MonoBehaviour
 
     void RopeControl()
     {
-        //Debug.Log($"IsReleasing: {isReleasing}");
         if (isReleasing)
         {
             crane.StopRotation();
             return;
         }
-        if(input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint)
+
+        if (input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint)
         {
             crane.StartRotation();
-            repCount++; //considering sit  or stand rep, after make it devide by 2 to get actual reps
-            holdTimer += Time.deltaTime; //adding time when sitting or standing to give some approx hold time
+            repCount++;
+            holdTimer += Time.deltaTime;
         }
         else
-        {   
+        {
             crane.StopRotation();
-            if(holdTimer < 2f)
+            if (holdTimer < 2f)
+                postureBreaks++;
+        }
+
+        float moveAmount = input * ropeSpeed * Time.deltaTime;
+
+        if (moveAmount != 0f)
+        {
+            Vector3 moveDir = moveAmount > 0 ? Vector3.up : Vector3.down;
+            float moveDist = Mathf.Abs(moveAmount);
+
+            
+            Vector3 halfExtents = cargoContainerCollider.size * 0.5f;
+
+            LayerMask mask = ~(LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Hook"));
+
+
+            bool blocked = Physics.BoxCast(
+                transform.position,
+                halfExtents,
+                moveDir,
+                out RaycastHit hit,
+                Quaternion.identity,
+                moveDist + 0.05f,
+                mask
+            );
+
+            if (blocked)
             {
-                postureBreaks++; //calculating posture breaks based on hold time
+               
+                float safeMove = Mathf.Max(0f, hit.distance - 0.05f);
+                moveAmount = moveDir == Vector3.up ? safeMove : -safeMove;
             }
         }
 
-        
+        transform.Translate(0, moveAmount, 0);
 
-            transform.Translate(0, input * ropeSpeed * Time.deltaTime, 0);
-
-        //updating maxlentgh based on stack collider size
         maxLength = (trolley.transform.position.y - cargoContainerCollider.size.y) - 0.5f;
-
-        //clamping y to prevent crossing boundaries
         float minY = trolley.position.y - maxLength;
         float maxY = trolley.position.y - minLength;
-
         Vector3 pos = transform.position;
-
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
-
         transform.position = pos;
 
         lineRenderer.SetPosition(0, trolley.position);
