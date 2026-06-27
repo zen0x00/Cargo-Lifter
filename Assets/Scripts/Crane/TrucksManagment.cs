@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+
 //using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +14,9 @@ public class TrucksManagment : MonoBehaviour
 
     [SerializeField] private Hook hook;
     [SerializeField] private GameManager gameManager;
+    [SerializeField]private GameObject HookCam;
+    [SerializeField] private camBlend camblend;
+    public int lastTruckIndex;
 
 
     private void Update()
@@ -68,7 +73,7 @@ public class TrucksManagment : MonoBehaviour
         {
             StartCoroutine(PlayTruckAnimAfter(truck, i));
 
-            int lastTruckIndex;
+            
             switch (gameManager.Level)
             {
                 case GameManager.diffLevel.Begginer: lastTruckIndex = 0; break;
@@ -79,6 +84,8 @@ public class TrucksManagment : MonoBehaviour
 
             if(truck == trucks[lastTruckIndex])
             {
+                camblend.stopCameraSwitch=true;
+                HookCam.SetActive(false);
                 lastTruckFollowCam.SetActive(true);
             }
         }
