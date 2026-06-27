@@ -71,7 +71,7 @@ public class uiManager : MonoBehaviour
     {
         if (gameManager.sessionEnded && !leaderboardShown)
         {
-            Invoke(nameof(ShowLeaderBoard), 6f);
+            Invoke("ShowLeaderBoard", 20f);
             leaderboardShown = true;
         }
 

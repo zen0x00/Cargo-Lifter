@@ -7,31 +7,51 @@ public class CraneRotate : MonoBehaviour
     public float rotationSpeed = 10f;
 
     public float currentAngle;
+
     public bool isRotating;
     public bool isCollided = false;
     public bool isAtDropPoint = false;
 
+    [SerializeField] private Hook hook;
+
     void Start()
     {
         ResetRotation();
-    } 
+    }
 
     void Update()
     {
-        if (!isRotating) return;
+        if (!isRotating)
+            return;
 
         currentAngle += rotationSpeed * Time.deltaTime;
 
+
+        currentAngle = Mathf.Clamp(currentAngle, startAngle, endAngle);
+
+
         if (currentAngle >= endAngle)
         {
-            isAtDropPoint = true;
-            rotationSpeed *= -1;
+            currentAngle = endAngle;
+
+            if (hook.cargoStack.Count > 0)
+            {
+
+                isAtDropPoint = true;
+                StopRotation();
+            }
+            else
+            {
+                rotationSpeed = -Mathf.Abs(rotationSpeed);
+            }
         }
-        else if (currentAngle <= startAngle)
+
+
+        if (currentAngle <= startAngle)
         {
-            rotationSpeed *= -1f;
+            currentAngle = startAngle;
+            rotationSpeed = Mathf.Abs(rotationSpeed);
         }
-        
 
         transform.localRotation = Quaternion.Euler(0f, currentAngle, 0f);
     }
@@ -39,12 +59,16 @@ public class CraneRotate : MonoBehaviour
     public void ResetRotation()
     {
         currentAngle = startAngle;
+        rotationSpeed = Mathf.Abs(rotationSpeed);
         transform.localRotation = Quaternion.Euler(0f, currentAngle, 0f);
+
+        isRotating = false;
+        isAtDropPoint = false;
+        isCollided = false;
     }
 
     public void StartRotation()
     {
-
         isRotating = true;
     }
 
@@ -55,7 +79,6 @@ public class CraneRotate : MonoBehaviour
 
     public void RotateReverse()
     {
-        rotationSpeed *= -1;
+        rotationSpeed = -rotationSpeed;
     }
 }
-
