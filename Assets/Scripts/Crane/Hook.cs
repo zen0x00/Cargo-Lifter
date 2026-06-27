@@ -84,71 +84,80 @@ public class Hook : MonoBehaviour
 
     }
 
-    void RopeControl()
+void RopeControl()
+{
+    if (isReleasing)
     {
-        if (isReleasing)
-        {
-            crane.StopRotation();
-            return;
-        }
-
-        if (input <= 0.01f && input >= -0.01f && !crane.isCollided && isGameStarted && !crane.isAtDropPoint)
-        {
-            crane.StartRotation();
-            repCount++;
-            holdTimer += Time.deltaTime;
-        }
-        else
-        {
-            crane.StopRotation();
-            if (holdTimer < 2f)
-                postureBreaks++;
-        }
-
-        float moveAmount = input * ropeSpeed * Time.deltaTime;
-
-        if (moveAmount != 0f)
-        {
-            Vector3 moveDir = moveAmount > 0 ? Vector3.up : Vector3.down;
-            float moveDist = Mathf.Abs(moveAmount);
-
-            
-            Vector3 halfExtents = cargoContainerCollider.size * 0.5f;
-
-            LayerMask mask = ~(LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Hook"));
-
-
-            bool blocked = Physics.BoxCast(
-                transform.position,
-                halfExtents,
-                moveDir,
-                out RaycastHit hit,
-                Quaternion.identity,
-                moveDist + 0.05f,
-                mask
-            );
-
-            if (blocked)
-            {
-               
-                float safeMove = Mathf.Max(0f, hit.distance - 0.05f);
-                moveAmount = moveDir == Vector3.up ? safeMove : -safeMove;
-            }
-        }
-
-        transform.Translate(0, moveAmount, 0);
-
-        maxLength = (trolley.transform.position.y - cargoContainerCollider.size.y) - 0.5f;
-        float minY = trolley.position.y - maxLength;
-        float maxY = trolley.position.y - minLength;
-        Vector3 pos = transform.position;
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        transform.position = pos;
-
-        lineRenderer.SetPosition(0, trolley.position);
-        lineRenderer.SetPosition(1, transform.position);
+        crane.StopRotation();
+        return;
     }
 
+    // Calculate rope limits
+    maxLength = (trolley.position.y - cargoContainerCollider.size.y) - 0.5f;
+
+    float minY = trolley.position.y - maxLength;
+    float maxY = trolley.position.y - minLength;
+
+    // Is hook fully raised?
+    bool hookAtTop = transform.position.y >= maxY - 0.05f;
+
+    // Rotate ONLY when hook is at the top
+    if (Mathf.Abs(input) < 0.01f &&
+        !crane.isCollided &&
+        isGameStarted &&
+        !crane.isAtDropPoint &&
+        hookAtTop)
+    {
+        crane.StartRotation();
+
+        repCount++;
+        holdTimer += Time.deltaTime;
+    }
+    else
+    {
+        crane.StopRotation();
+
+        if (holdTimer < 2f)
+            postureBreaks++;
+    }
+
+    float moveAmount = input * ropeSpeed * Time.deltaTime;
+
+    if (moveAmount != 0f)
+    {
+        Vector3 moveDir = moveAmount > 0 ? Vector3.up : Vector3.down;
+        float moveDist = Mathf.Abs(moveAmount);
+
+        Vector3 halfExtents = cargoContainerCollider.size * 0.5f;
+
+        LayerMask mask = ~(LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Hook"));
+
+        bool blocked = Physics.BoxCast(
+            transform.position,
+            halfExtents,
+            moveDir,
+            out RaycastHit hit,
+            Quaternion.identity,
+            moveDist + 0.05f,
+            mask
+        );
+
+        if (blocked)
+        {
+            float safeMove = Mathf.Max(0f, hit.distance - 0.05f);
+            moveAmount = moveDir == Vector3.up ? safeMove : -safeMove;
+        }
+    }
+
+    transform.Translate(0, moveAmount, 0);
+
+    Vector3 pos = transform.position;
+    pos.y = Mathf.Clamp(pos.y, minY, maxY);
+    transform.position = pos;
+
+    lineRenderer.SetPosition(0, trolley.position);
+    lineRenderer.SetPosition(1, transform.position);
+}
 
     public void StackCargo(GameObject cargo)
     {

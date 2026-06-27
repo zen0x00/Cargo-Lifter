@@ -4471,6 +4471,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Truck-3
+      objectReference: {fileID: 0}
     - target: {fileID: 5652376282014860881, guid: 6880438938f06c946955d2b004d848fe,
         type: 3}
       propertyPath: m_Layer
@@ -5051,7 +5056,7 @@ PrefabInstance:
     - target: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
         type: 3}
       propertyPath: m_TagString
-      value: Truck
+      value: Truck-1
       objectReference: {fileID: 0}
     - target: {fileID: 5029996692744657461, guid: 6880438938f06c946955d2b004d848fe,
         type: 3}
@@ -22621,6 +22626,9 @@ MonoBehaviour:
   lastTruckFollowCam: {fileID: 380745608}
   hook: {fileID: 1460424602}
   gameManager: {fileID: 1191225644}
+  HookCam: {fileID: 1396521588}
+  camblend: {fileID: 1678576558}
+  lastTruckIndex: 0
 --- !u!1001 &1184500704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23332,7 +23340,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1573229287}
   m_HandleRect: {fileID: 1573229286}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.26400957
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -24429,7 +24437,7 @@ PrefabInstance:
     - target: {fileID: 5593282712571174227, guid: 433cd087f2f5566429b65ac4117dcbb5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.39
+      value: -6.93
       objectReference: {fileID: 0}
     - target: {fileID: 5593282712571174227, guid: 433cd087f2f5566429b65ac4117dcbb5,
         type: 3}
@@ -24644,6 +24652,7 @@ MonoBehaviour:
   isRotating: 0
   isCollided: 0
   isAtDropPoint: 0
+  hook: {fileID: 1460424602}
 --- !u!4 &1268806772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3291439256549813893, guid: 433cd087f2f5566429b65ac4117dcbb5,
@@ -26648,7 +26657,7 @@ Transform:
   m_GameObject: {fileID: 1396521588}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38899294, y: 0.5930485, z: -0.395147, w: 0.5838123}
-  m_LocalPosition: {x: 27.133001, y: 22.7, z: -82.04}
+  m_LocalPosition: {x: 27.133001, y: 23.16, z: -82.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27638,6 +27647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958609379848094512, guid: 6880438938f06c946955d2b004d848fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Truck-2
       objectReference: {fileID: 0}
     - target: {fileID: 5652376282014860881, guid: 6880438938f06c946955d2b004d848fe,
         type: 3}
@@ -29775,7 +29789,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 79918842}
         m_TargetAssemblyTypeName: uiManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30922,6 +30936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConstantCam: {fileID: 311104220}
+  trucksManagment: {fileID: 1177054263}
 --- !u!65 &1603732099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33094,6 +33109,7 @@ MonoBehaviour:
   crane: {fileID: 1268806771}
   hook: {fileID: 1460424602}
   camChangePoint: -40
+  stopCameraSwitch: 0
 --- !u!1 &1686915279
 GameObject:
   m_ObjectHideFlags: 0
