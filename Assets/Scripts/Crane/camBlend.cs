@@ -13,6 +13,7 @@ public class camBlend : MonoBehaviour
     [SerializeField] CraneRotate crane;
     [SerializeField] Hook hook;
     public float camChangePoint = -40f;
+    public bool stopCameraSwitch=false;
 
 
     private void Start()
@@ -25,6 +26,10 @@ public class camBlend : MonoBehaviour
 
     private void Update()
     {
+        if (stopCameraSwitch)
+        {
+            return;
+        }
 
         if (!crane.isRotating && !hook.isReleasing)
         {

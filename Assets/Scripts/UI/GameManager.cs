@@ -28,6 +28,20 @@ public class GameManager : MonoBehaviour
     public enum diffLevel {Begginer, Intermidiate, Expert};
     public diffLevel Level;
 
+
+    public static GameManager instance;
+
+    void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+
+
     private void Start()
     {
         ClearTrucks();
