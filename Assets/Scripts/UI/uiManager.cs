@@ -1,13 +1,9 @@
- using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class uiManager : MonoBehaviour
 {
-
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject diffSelectMenu;
     [SerializeField] private GameObject settingsMenu;
@@ -17,47 +13,79 @@ public class uiManager : MonoBehaviour
     [SerializeField] private GameObject leaderBoard;
     [SerializeField] private GameObject gameOverScreen;
 
-
     [SerializeField] public CraneRotate crane;
     [SerializeField] public Hook hook;
     [SerializeField] private GameManager gameManager;
+
     bool leaderboardShown = false;
+
+    public static bool isRestart = false;
+    public static GameManager.diffLevel restartLevel;
 
     private void Start()
     {
-       GoToStart();
-       startMenu.SetActive(true);
-       diffSelectMenu.SetActive(false);
-       settingsMenu.SetActive(false);
-       pauseMenu.SetActive(false);
+        if (isRestart)
+        {
+            isRestart = false;
 
-       analyticsStatsTab.SetActive(false);
-       analyticsGraphTab.SetActive(false);
-       leaderBoard.SetActive(false);
+            startMenu.SetActive(false);
+            diffSelectMenu.SetActive(false);
+            settingsMenu.SetActive(false);
+            pauseMenu.SetActive(false);
+            analyticsStatsTab.SetActive(false);
+            analyticsGraphTab.SetActive(false);
+            leaderBoard.SetActive(false);
+            gameOverScreen.SetActive(false);
 
+            switch (restartLevel)
+            {
+                case GameManager.diffLevel.Begginer:
+                    LoadBeginnerLevel();
+                    break;
+
+                case GameManager.diffLevel.Intermidiate:
+                    LoadIntermediateLevel();
+                    break;
+
+                case GameManager.diffLevel.Expert:
+                    LoadExpertLevel();
+                    break;
+            }
+
+            return;
+        }
+
+        GoToStart();
+
+        startMenu.SetActive(true);
+        diffSelectMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        analyticsStatsTab.SetActive(false);
+        analyticsGraphTab.SetActive(false);
+        leaderBoard.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
-
 
     private void Update()
     {
         if (gameManager.sessionEnded && !leaderboardShown)
         {
-            Invoke("ShowLeaderBoard", 6f);
+            Invoke(nameof(ShowLeaderBoard), 6f);
             leaderboardShown = true;
         }
+
         if (leaderboardShown)
         {
             crane.StopRotation();
         }
     }
 
-
-
-
     public void StartGame()
     {
         startMenu.SetActive(false);
         diffSelectMenu.SetActive(true);
+
         analyticsStatsTab.SetActive(false);
         analyticsGraphTab.SetActive(false);
     }
@@ -69,79 +97,105 @@ public class uiManager : MonoBehaviour
 
     public void LoadBeginnerLevel()
     {
-        // Load Beginner Level Scene
+        restartLevel = GameManager.diffLevel.Begginer;
+
         diffSelectMenu.SetActive(false);
         pauseMenu.SetActive(false);
+
         crane.StartRotation();
         hook.isGameStarted = true;
+
         crane.rotationSpeed = 15f;
         hook.ropeSpeed = 18f;
+
         gameManager.Level = GameManager.diffLevel.Begginer;
     }
 
     public void LoadIntermediateLevel()
     {
-        //Load Inter Level Scene
+        restartLevel = GameManager.diffLevel.Intermidiate;
+
         diffSelectMenu.SetActive(false);
         pauseMenu.SetActive(false);
+
         crane.StartRotation();
         hook.isGameStarted = true;
-        hook.ropeSpeed = 12f;
-        crane.rotationSpeed = 25f;
-        gameManager.Level = GameManager.diffLevel.Intermidiate;
 
+        crane.rotationSpeed = 25f;
+        hook.ropeSpeed = 12f;
+
+        gameManager.Level = GameManager.diffLevel.Intermidiate;
     }
 
     public void LoadExpertLevel()
     {
+        restartLevel = GameManager.diffLevel.Expert;
 
-        //Load expert level scene
         diffSelectMenu.SetActive(false);
         pauseMenu.SetActive(false);
+
         crane.StartRotation();
         hook.isGameStarted = true;
-        hook.ropeSpeed = 8f;
-        crane.rotationSpeed = 40f;
-        gameManager.Level = GameManager.diffLevel.Expert;
 
+        crane.rotationSpeed = 40f;
+        hook.ropeSpeed = 8f;
+
+        gameManager.Level = GameManager.diffLevel.Expert;
     }
 
     public void GoToStart()
     {
-        analyticsGraphTab.SetActive(false);
         startMenu.SetActive(true);
+
+        diffSelectMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        analyticsStatsTab.SetActive(false);
+        analyticsGraphTab.SetActive(false);
+        leaderBoard.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
 
     public void OpenSettingsMenu()
     {
         settingsMenu.SetActive(true);
+        Time.timeScale = 0f;
+
     }
 
     public void CloseSettingsMenu()
     {
         settingsMenu.SetActive(false);
+        Time.timeScale = 1f;
+
     }
 
     public void OpenPauseMenu()
     {
         pauseMenu.SetActive(true);
-        crane.StopRotation();
+        Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        crane.StartRotation();
+        Time.timeScale = 1f;
     }
 
     public void RestartGame()
     {
-        pauseMenu.SetActive(false);
-        gameOverScreen.SetActive(false);
-        LoadBeginnerLevel();
-        crane.ResetRotation();
-        crane.StartRotation();
+        isRestart = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void ExitGame()
+    {
+        isRestart = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void ShowLeaderBoard()
     {
         gameOverScreen.SetActive(false);
@@ -152,7 +206,6 @@ public class uiManager : MonoBehaviour
     {
         leaderBoard.SetActive(false);
         analyticsStatsTab.SetActive(true);
-
     }
 
     public void ShowAnalyticsGraphTab()
@@ -164,10 +217,8 @@ public class uiManager : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverScreen.SetActive(true);
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(false);
         gameManager.sessionEnded = true;
     }
-
-
 }
-
-

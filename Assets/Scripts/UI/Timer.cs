@@ -26,7 +26,6 @@ public class Timer
         int minutes = (int)timeInSec / 60;
         int seconds = (int)timeInSec % 60;
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        //timerText.text = $"{minutes}:{seconds}";
 
     }
 
