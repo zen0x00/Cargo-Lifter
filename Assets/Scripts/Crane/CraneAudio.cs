@@ -59,14 +59,17 @@ public class CraneAudio : MonoBehaviour
     }
     public void PlayTruckMoveSound()
     {
+        Debug.Log("PlayTruckMoveSound is Called, TruckMoveSound: "+TruckMoveSound==null);
         audioSource.PlayOneShot(TruckMoveSound);
     }
     public void PlayTruckLoadSound()
     {
-        audioSource.PlayOneShot(TruckLoadSound);
+        audioSource.PlayOneShot(TruckLoadSound, 20);
     }
     public void PlayButtonClickSound()
     {
+        if(ButtonClick==null)
+            return;
         audioSource.PlayOneShot(ButtonClick);
     }
 

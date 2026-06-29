@@ -3641,6 +3641,7 @@ MonoBehaviour:
   - {fileID: 1970659124}
   - {fileID: 616953648}
   - {fileID: 419538947}
+  craneAudio: {fileID: 1741099019}
   currentSlotIndex: 0
 --- !u!95 &155915611
 Animator:
@@ -7831,6 +7832,7 @@ MonoBehaviour:
   - {fileID: 296110218}
   - {fileID: 25303634}
   - {fileID: 266523758}
+  craneAudio: {fileID: 1741099019}
   currentSlotIndex: 0
 --- !u!95 &335578784
 Animator:
@@ -11477,6 +11479,7 @@ MonoBehaviour:
   - {fileID: 582678513}
   - {fileID: 777054266}
   - {fileID: 33389970}
+  craneAudio: {fileID: 1741099019}
   currentSlotIndex: 0
 --- !u!95 &541426817
 Animator:
@@ -17121,6 +17124,7 @@ MonoBehaviour:
   gameManager: {fileID: 1191225644}
   HookCam: {fileID: 1396521588}
   camblend: {fileID: 1678576558}
+  craneAudio: {fileID: 1741099019}
   lastTruckIndex: 0
 --- !u!4 &784652192
 Transform:
@@ -29335,7 +29339,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c6b7c0971a5e9f44acc242e0b14538c, type: 2}
+  - {fileID: 2100000, guid: c7a716ff431b0944a92ab4ccf50e3805, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35356,8 +35360,8 @@ MonoBehaviour:
   moveUpSound: {fileID: 8300000, guid: 52bd7f203d5e3024289ba7413577d5fd, type: 3}
   moveDownSound: {fileID: 8300000, guid: b5430163deacd004d8a9405563c4db76, type: 3}
   moveSound: {fileID: 8300000, guid: 5c00194d2c99268488616ca361acbe2c, type: 3}
-  TruckMoveSound: {fileID: 0}
-  TruckLoadSound: {fileID: 0}
+  TruckMoveSound: {fileID: 8300000, guid: a2bd57e53beac064e8b18599657e8834, type: 3}
+  TruckLoadSound: {fileID: 8300000, guid: 8571f94dcec8d3c45ad9340c38bde38d, type: 3}
   ButtonClick: {fileID: 0}
 --- !u!82 &1741099020
 AudioSource:

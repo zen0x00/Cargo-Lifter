@@ -5,6 +5,7 @@ using UnityEngine;
 public class TruckSlotManager : MonoBehaviour
 {
     [SerializeField] public List<Transform> truckSlots = new List<Transform>();
+    public CraneAudio craneAudio;
 
     public int currentSlotIndex = 0;
 
@@ -39,7 +40,7 @@ public class TruckSlotManager : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-
+        
         cargo.position = endPos;
         cargo.localRotation = truckSlot.localRotation;
         cargo.transform.SetParent(truckSlot);

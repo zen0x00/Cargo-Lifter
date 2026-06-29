@@ -1,6 +1,5 @@
 using System.Collections;
 using Cinemachine;
-using Cinemachine.Editor;
 using UnityEngine;
 
 public class TrucksManagment : MonoBehaviour
@@ -13,6 +12,7 @@ public class TrucksManagment : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField]private GameObject HookCam;
     [SerializeField] private camBlend camblend;
+    [SerializeField]private CraneAudio craneAudio;
     public int lastTruckIndex;
 
 
@@ -86,13 +86,16 @@ public class TrucksManagment : MonoBehaviour
                 lastTruckFollowCam.SetActive(true);
                 lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().Follow=truck.transform;
                 lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().LookAt=truck.transform;
+                craneAudio.PlayTruckMoveSound();
             }
         }
     }
 
     public IEnumerator PlayTruckAnimAfter(GameObject truck, int i)
     {
+       
         yield return new WaitForSeconds(1);
+
         PlayTruckAnimation(truck, i);
     }
 }         
