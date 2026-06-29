@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Hook : MonoBehaviour
@@ -25,6 +26,7 @@ public class Hook : MonoBehaviour
     public float holdTimer = 0f;
     public int postureBreaks = 0;
     float input;
+    float timer=0f;
 
 
     public bool isReleasing;
@@ -32,13 +34,14 @@ public class Hook : MonoBehaviour
 
     [SerializeField] private CraneRotate crane;
     [SerializeField] private CraneAudio craneAudio;
+    [SerializeField]private GameObject MessageText;
 
     private void Start()
     {
         cargoContainerCollider = cargoContainer.GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         lineRenderer = GetComponent<LineRenderer>();
-
+        MessageText.SetActive(false);
         isReleasing = false;
     }
 
@@ -86,6 +89,7 @@ public class Hook : MonoBehaviour
 
 void RopeControl()
 {
+
     if (isReleasing)
     {
         crane.StopRotation();
@@ -97,10 +101,22 @@ void RopeControl()
 
     float minY = trolley.position.y - maxLength;
     float maxY = trolley.position.y - minLength;
-
+    if(MathF.Abs(input)<0.05f)
+        timer+=Time.deltaTime;
+    else
+        timer=0f;
     // Is hook fully raised?
     bool hookAtTop = transform.position.y >= maxY - 0.05f;
-
+    if (!hookAtTop && timer>1.5f)
+    {
+        MessageText.SetActive(true);
+        if(MathF.Abs(input)>0.05f)
+            timer=0f;
+    }
+    else
+    {
+        MessageText.SetActive(false);
+    }
     // Rotate ONLY when hook is at the top
     if (Mathf.Abs(input) < 0.01f &&
         !crane.isCollided &&

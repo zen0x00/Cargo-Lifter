@@ -8,6 +8,9 @@ public class CraneAudio : MonoBehaviour
     public AudioClip moveUpSound;
     public AudioClip moveDownSound;
     public AudioClip moveSound;
+    public AudioClip TruckMoveSound;
+    public AudioClip TruckLoadSound;
+    public AudioClip ButtonClick;
 
 
     public void Pickup()
@@ -22,6 +25,15 @@ public class CraneAudio : MonoBehaviour
         audioSource.clip = moveUpSound;
         audioSource.loop = true;
         audioSource.Play();
+    }
+
+    void OnDisable()
+    {
+        audioSource.enabled=false;
+    }
+    void OnEnable()
+    {
+        audioSource.enabled=true;
     }
 
     public void MoveDown()
@@ -44,6 +56,21 @@ public class CraneAudio : MonoBehaviour
     public void Stop()
     {
         audioSource.Stop();
+    }
+    public void PlayTruckMoveSound()
+    {
+        Debug.Log("PlayTruckMoveSound is Called, TruckMoveSound: "+TruckMoveSound==null);
+        audioSource.PlayOneShot(TruckMoveSound);
+    }
+    public void PlayTruckLoadSound()
+    {
+        audioSource.PlayOneShot(TruckLoadSound, 20);
+    }
+    public void PlayButtonClickSound()
+    {
+        if(ButtonClick==null)
+            return;
+        audioSource.PlayOneShot(ButtonClick);
     }
 
 }

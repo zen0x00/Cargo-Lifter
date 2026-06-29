@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-
-//using System.Diagnostics;
-using Unity.VisualScripting;
+using Cinemachine;
 using UnityEngine;
 
 public class TrucksManagment : MonoBehaviour
@@ -16,6 +12,7 @@ public class TrucksManagment : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField]private GameObject HookCam;
     [SerializeField] private camBlend camblend;
+    [SerializeField]private CraneAudio craneAudio;
     public int lastTruckIndex;
 
 
@@ -87,13 +84,18 @@ public class TrucksManagment : MonoBehaviour
                 camblend.stopCameraSwitch=true;
                 HookCam.SetActive(false);
                 lastTruckFollowCam.SetActive(true);
+                lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().Follow=truck.transform;
+                lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().LookAt=truck.transform;
+                craneAudio.PlayTruckMoveSound();
             }
         }
     }
 
     public IEnumerator PlayTruckAnimAfter(GameObject truck, int i)
     {
-        yield return new WaitForSeconds(4);
+       
+        yield return new WaitForSeconds(1);
+
         PlayTruckAnimation(truck, i);
     }
 }         
