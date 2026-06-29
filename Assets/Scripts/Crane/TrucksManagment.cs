@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-
-//using System.Diagnostics;
-using Unity.VisualScripting;
+using Cinemachine;
+using Cinemachine.Editor;
 using UnityEngine;
 
 public class TrucksManagment : MonoBehaviour
@@ -87,6 +84,8 @@ public class TrucksManagment : MonoBehaviour
                 camblend.stopCameraSwitch=true;
                 HookCam.SetActive(false);
                 lastTruckFollowCam.SetActive(true);
+                lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().Follow=truck.transform;
+                lastTruckFollowCam.gameObject.GetComponent<CinemachineVirtualCamera>().LookAt=truck.transform;
             }
         }
     }
