@@ -92,7 +92,7 @@ public class TrucksManagment : MonoBehaviour
 
     public IEnumerator PlayTruckAnimAfter(GameObject truck, int i)
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1);
         PlayTruckAnimation(truck, i);
     }
 }         

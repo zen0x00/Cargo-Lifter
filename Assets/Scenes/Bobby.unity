@@ -1965,6 +1965,7 @@ MonoBehaviour:
   crane: {fileID: 1268806771}
   hook: {fileID: 1460424602}
   gameManager: {fileID: 1191225644}
+  craneAudio: {fileID: 1741099019}
 --- !u!114 &79918843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,6 +3298,7 @@ GameObject:
   - component: {fileID: 143537678}
   - component: {fileID: 143537677}
   - component: {fileID: 143537676}
+  - component: {fileID: 143537679}
   m_Layer: 5
   m_Name: Start Btn
   m_TagString: Untagged
@@ -3418,6 +3420,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143537674}
   m_CullTransparentMesh: 1
+--- !u!114 &143537679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143537674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &153610846 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6369211477453475261, guid: 2f82398988470b44e904f466736629e9,
@@ -6293,6 +6324,7 @@ GameObject:
   - component: {fileID: 289221320}
   - component: {fileID: 289221319}
   - component: {fileID: 289221318}
+  - component: {fileID: 289221321}
   m_Layer: 5
   m_Name: Exit Btn
   m_TagString: Untagged
@@ -6414,6 +6446,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289221316}
   m_CullTransparentMesh: 1
+--- !u!114 &289221321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289221316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &292420501
 GameObject:
   m_ObjectHideFlags: 0
@@ -6563,6 +6624,7 @@ GameObject:
   - component: {fileID: 294226218}
   - component: {fileID: 294226217}
   - component: {fileID: 294226216}
+  - component: {fileID: 294226219}
   m_Layer: 5
   m_Name: Intermediate Btn
   m_TagString: Untagged
@@ -6684,6 +6746,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294226214}
   m_CullTransparentMesh: 1
+--- !u!114 &294226219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294226214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &296110217
 GameObject:
   m_ObjectHideFlags: 0
@@ -7780,6 +7871,7 @@ GameObject:
   - component: {fileID: 344532428}
   - component: {fileID: 344532427}
   - component: {fileID: 344532426}
+  - component: {fileID: 344532429}
   m_Layer: 5
   m_Name: Retry Btn
   m_TagString: Untagged
@@ -7901,6 +7993,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344532424}
   m_CullTransparentMesh: 1
+--- !u!114 &344532429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344532424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &345423882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8547,6 +8668,7 @@ GameObject:
   - component: {fileID: 390019250}
   - component: {fileID: 390019249}
   - component: {fileID: 390019248}
+  - component: {fileID: 390019251}
   m_Layer: 5
   m_Name: Back Btn
   m_TagString: Untagged
@@ -8668,6 +8790,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390019246}
   m_CullTransparentMesh: 1
+--- !u!114 &390019251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390019246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &396849242
 GameObject:
   m_ObjectHideFlags: 0
@@ -9508,6 +9659,7 @@ GameObject:
   - component: {fileID: 443785278}
   - component: {fileID: 443785277}
   - component: {fileID: 443785276}
+  - component: {fileID: 443785279}
   m_Layer: 5
   m_Name: Next Btn
   m_TagString: Untagged
@@ -9629,6 +9781,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443785274}
   m_CullTransparentMesh: 1
+--- !u!114 &443785279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443785274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &444292305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9777,6 +9958,7 @@ GameObject:
   - component: {fileID: 467553982}
   - component: {fileID: 467553981}
   - component: {fileID: 467553980}
+  - component: {fileID: 467553983}
   m_Layer: 5
   m_Name: Next Btn
   m_TagString: Untagged
@@ -9898,6 +10080,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467553978}
   m_CullTransparentMesh: 1
+--- !u!114 &467553983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467553978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &467890498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 710756970469833223, guid: 2f82398988470b44e904f466736629e9,
@@ -9916,6 +10127,7 @@ GameObject:
   - component: {fileID: 470789155}
   - component: {fileID: 470789154}
   - component: {fileID: 470789153}
+  - component: {fileID: 470789156}
   m_Layer: 5
   m_Name: Settings Btn
   m_TagString: Untagged
@@ -10036,6 +10248,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470789151}
   m_CullTransparentMesh: 1
+--- !u!114 &470789156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470789151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &473918858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13078,6 +13319,7 @@ GameObject:
   - component: {fileID: 609193057}
   - component: {fileID: 609193056}
   - component: {fileID: 609193055}
+  - component: {fileID: 609193058}
   m_Layer: 5
   m_Name: Beginner Btn
   m_TagString: Untagged
@@ -13199,6 +13441,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609193053}
   m_CullTransparentMesh: 1
+--- !u!114 &609193058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609193053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &610798443
 GameObject:
   m_ObjectHideFlags: 0
@@ -13418,6 +13689,7 @@ GameObject:
   - component: {fileID: 624636513}
   - component: {fileID: 624636512}
   - component: {fileID: 624636511}
+  - component: {fileID: 624636514}
   m_Layer: 5
   m_Name: Expert Btn
   m_TagString: Untagged
@@ -13539,6 +13811,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624636509}
   m_CullTransparentMesh: 1
+--- !u!114 &624636514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624636509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &628879547
 GameObject:
   m_ObjectHideFlags: 0
@@ -19477,6 +19778,7 @@ GameObject:
   - component: {fileID: 937645485}
   - component: {fileID: 937645483}
   - component: {fileID: 937645484}
+  - component: {fileID: 937645487}
   m_Layer: 5
   m_Name: About  Btn
   m_TagString: Untagged
@@ -19598,6 +19900,35 @@ RectTransform:
   m_AnchoredPosition: {x: -595, y: -0.000005722}
   m_SizeDelta: {x: 300, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &937645487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937645482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &940158105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19901,6 +20232,7 @@ GameObject:
   - component: {fileID: 958763656}
   - component: {fileID: 958763655}
   - component: {fileID: 958763654}
+  - component: {fileID: 958763657}
   m_Layer: 5
   m_Name: Restart Btn
   m_TagString: Untagged
@@ -20022,6 +20354,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958763652}
   m_CullTransparentMesh: 1
+--- !u!114 &958763657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958763652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &961182082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6369211477453475261, guid: 2f82398988470b44e904f466736629e9,
@@ -21552,6 +21913,7 @@ GameObject:
   - component: {fileID: 1074225181}
   - component: {fileID: 1074225180}
   - component: {fileID: 1074225179}
+  - component: {fileID: 1074225182}
   m_Layer: 5
   m_Name: Quit Btn
   m_TagString: Untagged
@@ -21673,6 +22035,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074225177}
   m_CullTransparentMesh: 1
+--- !u!114 &1074225182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074225177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1074294116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22291,6 +22682,7 @@ GameObject:
   - component: {fileID: 1129170861}
   - component: {fileID: 1129170860}
   - component: {fileID: 1129170859}
+  - component: {fileID: 1129170862}
   m_Layer: 5
   m_Name: Resume  Btn
   m_TagString: Untagged
@@ -22412,6 +22804,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129170857}
   m_CullTransparentMesh: 1
+--- !u!114 &1129170862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129170857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1137886335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 710756970469833223, guid: 6d804e78e99fe9b4cbe149e7cdaea98e,
@@ -22478,6 +22899,7 @@ GameObject:
   - component: {fileID: 1142344325}
   - component: {fileID: 1142344323}
   - component: {fileID: 1142344324}
+  - component: {fileID: 1142344327}
   m_Layer: 5
   m_Name: Audio Btn
   m_TagString: Untagged
@@ -22599,6 +23021,35 @@ RectTransform:
   m_AnchoredPosition: {x: -595, y: 163}
   m_SizeDelta: {x: 330, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1142344327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142344322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1143812283
 GameObject:
   m_ObjectHideFlags: 0
@@ -27158,6 +27609,7 @@ GameObject:
   - component: {fileID: 1403628223}
   - component: {fileID: 1403628222}
   - component: {fileID: 1403628221}
+  - component: {fileID: 1403628224}
   m_Layer: 5
   m_Name: Back Btn
   m_TagString: Untagged
@@ -27279,6 +27731,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403628219}
   m_CullTransparentMesh: 1
+--- !u!114 &1403628224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403628219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1405239037
 GameObject:
   m_ObjectHideFlags: 0
@@ -29885,6 +30366,7 @@ GameObject:
   - component: {fileID: 1506608086}
   - component: {fileID: 1506608085}
   - component: {fileID: 1506608084}
+  - component: {fileID: 1506608087}
   m_Layer: 5
   m_Name: Back Btn
   m_TagString: Untagged
@@ -30006,6 +30488,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506608082}
   m_CullTransparentMesh: 1
+--- !u!114 &1506608087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506608082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1508370908
 GameObject:
   m_ObjectHideFlags: 0
@@ -31886,6 +32397,7 @@ GameObject:
   - component: {fileID: 1642978870}
   - component: {fileID: 1642978869}
   - component: {fileID: 1642978868}
+  - component: {fileID: 1642978871}
   m_Layer: 5
   m_Name: Pause Btn
   m_TagString: Untagged
@@ -32006,6 +32518,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642978866}
   m_CullTransparentMesh: 1
+--- !u!114 &1642978871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642978866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1647227101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34815,6 +35356,9 @@ MonoBehaviour:
   moveUpSound: {fileID: 8300000, guid: 52bd7f203d5e3024289ba7413577d5fd, type: 3}
   moveDownSound: {fileID: 8300000, guid: b5430163deacd004d8a9405563c4db76, type: 3}
   moveSound: {fileID: 8300000, guid: 5c00194d2c99268488616ca361acbe2c, type: 3}
+  TruckMoveSound: {fileID: 0}
+  TruckLoadSound: {fileID: 0}
+  ButtonClick: {fileID: 0}
 --- !u!82 &1741099020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36282,6 +36826,7 @@ GameObject:
   - component: {fileID: 1790932566}
   - component: {fileID: 1790932565}
   - component: {fileID: 1790932564}
+  - component: {fileID: 1790932567}
   m_Layer: 0
   m_Name: Next Btn
   m_TagString: Untagged
@@ -36403,6 +36948,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790932562}
   m_CullTransparentMesh: 1
+--- !u!114 &1790932567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790932562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1741099019}
+          m_TargetAssemblyTypeName: CraneAudio, Assembly-CSharp
+          m_MethodName: PlayButtonClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1803493179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5874cf7ffd4186c4f93d52c49d7ad2b2,

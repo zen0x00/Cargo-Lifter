@@ -16,6 +16,7 @@ public class uiManager : MonoBehaviour
     [SerializeField] public CraneRotate crane;
     [SerializeField] public Hook hook;
     [SerializeField] private GameManager gameManager;
+    [SerializeField]private CraneAudio craneAudio;
 
     bool leaderboardShown = false;
 
@@ -71,7 +72,7 @@ public class uiManager : MonoBehaviour
     {
         if (gameManager.sessionEnded && !leaderboardShown)
         {
-            Invoke("ShowLeaderBoard", 20f);
+            Invoke("ShowLeaderBoard", 12f);
             leaderboardShown = true;
         }
 
@@ -158,6 +159,7 @@ public class uiManager : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
+        craneAudio.enabled=false;
         settingsMenu.SetActive(true);
         Time.timeScale = 0f;
 
@@ -165,6 +167,7 @@ public class uiManager : MonoBehaviour
 
     public void CloseSettingsMenu()
     {
+        craneAudio.enabled=true;
         settingsMenu.SetActive(false);
         Time.timeScale = 1f;
 
@@ -172,6 +175,7 @@ public class uiManager : MonoBehaviour
 
     public void OpenPauseMenu()
     {
+        craneAudio.enabled=false;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -179,6 +183,7 @@ public class uiManager : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        craneAudio.enabled=true;
         Time.timeScale = 1f;
     }
 
