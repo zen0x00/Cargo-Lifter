@@ -28,6 +28,9 @@ public class Hook : MonoBehaviour
     float input;
     float timer=0f;
 
+    public LayerMask targetLayer;
+
+
 
     public bool isReleasing;
     private Rigidbody rb;
@@ -96,7 +99,7 @@ void RopeControl()
         return;
     }
 
-    // Calculate rope limits
+
     maxLength = (trolley.position.y - cargoContainerCollider.size.y) - 0.5f;
 
     float minY = trolley.position.y - maxLength;
@@ -105,7 +108,7 @@ void RopeControl()
         timer+=Time.deltaTime;
     else
         timer=0f;
-    // Is hook fully raised?
+
     bool hookAtTop = transform.position.y >= maxY - 0.05f;
     if (!hookAtTop && timer>1.5f)
     {
@@ -117,7 +120,7 @@ void RopeControl()
     {
         MessageText.SetActive(false);
     }
-    // Rotate ONLY when hook is at the top
+    // rotate only when hook is at the top
     if (Mathf.Abs(input) < 0.01f &&
         !crane.isCollided &&
         isGameStarted &&
@@ -194,10 +197,39 @@ void RopeControl()
         Vector3 localPos = Vector3.down * (index * cargoHeight + 0.5f * cargoHeight);
         cargo.transform.localPosition = localPos;
 
+
+        PlaceCargoWithoutOverlap(cargo);
         cargoStack.Add(cargo);
 
 
         GrowTrigger(cargo.transform);
+    }
+
+    private void PlaceCargoWithoutOverlap( GameObject cargo)
+    {
+
+        BoxCollider cargoCollider = cargo.GetComponent<BoxCollider>();
+        Vector3 center = cargoCollider.transform.TransformPoint(cargoCollider.center);
+
+        Vector3 halfSize = cargoCollider.size / 2f;
+
+        halfSize.x *= cargoCollider.transform.lossyScale.x;
+        halfSize.y *= cargoCollider.transform.lossyScale.y;
+        halfSize.z *= cargoCollider.transform.lossyScale.z;
+
+        Quaternion rotation = cargoCollider.transform.rotation;
+
+        bool isColliding = Physics.CheckBox(center, halfSize, rotation, targetLayer);
+
+        if (isColliding)
+        {
+            Debug.Log("Cargo is colliding with Environment");
+            cargo.transform.localRotation = Quaternion.Euler(0, 105, 0);
+        }
+        else
+        {
+            Debug.Log("Cargo is NOT colliding with Environment");
+        }
     }
 
     void GrowTrigger(Transform cargoTf)
